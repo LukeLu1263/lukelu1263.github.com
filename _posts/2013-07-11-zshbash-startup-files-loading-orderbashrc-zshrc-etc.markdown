@@ -3,10 +3,12 @@ layout: post
 title: "Zsh/Bash startup files loading order(.bashrc, .zshrc etc.)"
 description: "Zsh/Bash startup files loading order (.bashrc, .zshrc etc.)"
 category: 
-tags: [shell, bash, zsh]
+tags: []
 ---
 
 repost from :http://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
+
+Modified a little by me.
 
 If you have ever put something in a file like .bashrc and had it not work, or are confused by why there are so many different files — .bashrc, .bash_profile, .bash_login, .profile etc. — and what they do, this is for you.
 
@@ -14,30 +16,20 @@ The issue is that Bash sources from a different file based on what kind of shell
 
 For Bash, they work as follows. Read down the appropriate column. Executes A, then B, then C, etc. The B1, B2, B3 means it executes only the first of those files found.
 
-+----------------+-----------+-----------+------+
-|                |Interactive|Interactive|Script|
-|                |login      |non-login  |      |
-+----------------+-----------+-----------+------+
+
+|          |Interactive login|Interactive non-login  |Script|
+|----------------|-----------|-----------|------|
 |/etc/profile    |   A       |           |      |
-+----------------+-----------+-----------+------+
 |/etc/bash.bashrc|           |    A      |      |
-+----------------+-----------+-----------+------+
 |~/.bashrc       |           |    B      |      |
-+----------------+-----------+-----------+------+
 |~/.bash_profile |   B1      |           |      |
-+----------------+-----------+-----------+------+
 |~/.bash_login   |   B2      |           |      |
-+----------------+-----------+-----------+------+
 |~/.profile      |   B3      |           |      |
-+----------------+-----------+-----------+------+
 |BASH_ENV        |           |           |  A   |
-+----------------+-----------+-----------+------+
-|                |           |           |      |
-+----------------+-----------+-----------+------+
-|                |           |           |      |
-+----------------+-----------+-----------+------+
 |~/.bash_logout  |    C      |           |      |
-+----------------+-----------+-----------+------+
+
+
+
 Typically, most users will encounter a login shell only if either:
 * they logged in from a tty, not through a GUI
 * they logged in remotely, such as through ssh.
@@ -71,34 +63,20 @@ You then need to have only file, and you can call this ~/.bashrc and do cd &amp;
 
 For zsh: [Note this is not entirely correct, as zsh reads ~/.profile as well, if ~/.zshrc is not present. Will fix this later.]
 
-+----------------+-----------+-----------+------+
-|                |Interactive|Interactive|Script|
-|                |login      |non-login  |      |
-+----------------+-----------+-----------+------+
+
+|                |Interactive login|Interactive non-login|Script|
+|----------------|-----------|-----------|------|
 |/etc/zshenv     |    A      |    A      |  A   |
-+----------------+-----------+-----------+------+
 |~/.zshenv       |    B      |    B      |  B   |
-+----------------+-----------+-----------+------+
 |/etc/zprofile   |    C      |           |      |
-+----------------+-----------+-----------+------+
 |~/.zprofile     |    D      |           |      |
-+----------------+-----------+-----------+------+
 |/etc/zshrc      |    E      |    C      |      |
-+----------------+-----------+-----------+------+
 |~/.zshrc        |    F      |    D      |      |
-+----------------+-----------+-----------+------+
 |/etc/zlogin     |    G      |           |      |
-+----------------+-----------+-----------+------+
 |~/.zlogin       |    H      |           |      |
-+----------------+-----------+-----------+------+
-|                |           |           |      |
-+----------------+-----------+-----------+------+
-|                |           |           |      |
-+----------------+-----------+-----------+------+
 |~/.zlogout      |    I      |           |      |
-+----------------+-----------+-----------+------+
 |/etc/zlogout    |    J      |           |      |
-+----------------+-----------+-----------+------+
+
 Moral:
 For bash, put stuff in ~/.bashrc, and make ~/.bash_profile source it.
 For zsh, put stuff in ~/.zshrc, which is always executed.

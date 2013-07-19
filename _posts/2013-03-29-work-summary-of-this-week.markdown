@@ -2,7 +2,7 @@
 layout: post
 title: "Work Summary Of This Week"
 description: "关于iOS本周学习的内容"
-category: 
+category: Summary 
 tags: [Weekly Summarize]
 ---
 
