@@ -45,11 +45,11 @@ If the shell was started any other way, such as through GNOME’s gnome-terminal
 
 So typically (or sooner or later), what you will encounter are non-login shells. So this case is what you should write your config files for. This means putting most of your stuff in ~/.bashrc, having exactly one of ~/.bash_profile, ~/.bash_login, and ~/.profile, and sourcing ~/.bashrc from it. If you have nothing that you specifically want to happen only for login shells, you can even symlink one of the three to ~/.bashrc. In fact, even if you do, it is probably a good idea to have only file, as follows:
 
-# Bash customisation file
+##Bash customisation file
 
-#General configuration starts: stuff that you always want executed
+##General configuration starts: stuff that you always want executed
 
-#General configuration ends
+##General configuration ends
 
 if [[ -n $PS1 ]]&nbsp;then
     : # These are executed only for interactive shells
