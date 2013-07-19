@@ -2,8 +2,8 @@
 layout: post
 title: "just for test"
 description: "It's test program"
-category: 
-tags: []
+category: lessons 
+tags: [intro, beginner, jekyll, tutorial]
 ---
 {% include JB/setup %}
 
