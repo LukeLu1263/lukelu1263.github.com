@@ -14,9 +14,11 @@ tagline: Site Tagline
 author : 
     name : Luke Lu
     email : lzf824446@gmail.com
-    github : LukeLu1263 
-    twitter : LukeLu
-    feedburner : feedname
+    github : lukelu1263 
+    weibo : zaifeilu
+    csdn : lukelu1263
+    linkedin : lukelu1263
+
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
