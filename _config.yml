@@ -85,13 +85,13 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : jekyllbootstrap
+      short_name : lukelu
     livefyre :
-      site_id : 123
+      site_id : lukelu
     intensedebate :
-      account : 123abc
+      account : lzf824446@gmail.com 
     facebook :
-      appid : 123
+      appid : 8836380
       num_posts: 5
       width: 580
       colorscheme: light
