@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "QinShiHuang  week2"
+title: "Coursera:国古代历史人物--秦始皇week2随笔"
 description: ""
-category: 
-tags: []
+category: Coursera 
+tags: [古代历史秦始皇]
 ---
 {% include JB/setup %}
 
