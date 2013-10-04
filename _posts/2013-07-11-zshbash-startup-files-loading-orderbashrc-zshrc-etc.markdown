@@ -3,7 +3,7 @@ layout: post
 title: "Zsh/Bash startup files loading order(.bashrc, .zshrc etc.)"
 description: "Zsh/Bash startup files loading order (.bashrc, .zshrc etc.)"
 category: 
-tags: []
+tags: [linux]
 ---
 
 repost from :http://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/

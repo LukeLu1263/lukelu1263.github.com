@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Coursera:国古代历史人物--秦始皇week2随笔"
+title: "秦始皇week2随笔"
 description: "孔子与秦始皇"
-category: Coursera 
+category:
 tags: [古代历史秦始皇]
 ---
 {% include JB/setup %}

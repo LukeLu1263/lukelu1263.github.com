@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Coursera:国古代历史人物--秦始皇week1随笔"
+title: "秦始皇week1随笔"
 description: "学历史最重要的是学会思辨的能力"
-category: Coursera
+category:
 tags: [古代历史秦始皇]
 ---
 {% include JB/setup %}

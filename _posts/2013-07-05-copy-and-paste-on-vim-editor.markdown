@@ -3,7 +3,7 @@ layout: post
 title: "Copy and Paste on Vim Editor"
 description: ""
 category: 
-tags: [vim]
+tags: [linux]
 ---
 
 转自：http://woodvillage.blogbus.com/logs/34811481.html
