@@ -12,9 +12,9 @@ tags: [sox]
 
 1.	不要在iOS、windows平台下进行./configure操作， 可能是由于sox需要的系统库与linxu有些不同。
 
-	如果非要在iOS、windows平台下进行./configure操作，就需要带参数 --host=arm-eabi 
+	如果非要在iOS、windows平台下进行./configure操作，就需要带参数 host=arm-eabi 
 
-	即 ./configure --host=arm-eabi 
+	即 ./configure host=arm-eabi 
 
 2.	根据你是否有一些头文件来修改soxconfig.h
 
