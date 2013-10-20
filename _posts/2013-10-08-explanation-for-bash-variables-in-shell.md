@@ -3,7 +3,7 @@ layout: post
 title: "Explanation for 0, ,  bash,  and %2 variables in shell"
 description: ""
 category: 
-tags: []
+tags: [linux]
 ---
 {% include JB/setup %}
 
