@@ -8,19 +8,23 @@ tags: [sox]
 {% include JB/setup %}
 
 
-###将sox移植到android平台上需要注意的几点：
+## Porting sox on android you need to notice the following:
 
-1.	不要在iOS、windows平台下进行./configure操作， 可能是由于sox需要的系统库与linxu有些不同。
+1.  **DO NOT** execute configure script on OSX or windows. This will cause different file or configuration corresponding to their system.
 
-	如果非要在iOS、windows平台下进行./configure操作，就需要带参数 host=arm-eabi 
+	If you want to do that, please take the parameters for the script like this:
 
-	即 ./configure host=arm-eabi 
+	./configure host=arm-eabi 
 
-2.	根据你是否有一些头文件来修改soxconfig.h
+	(--help for some help. Enable or disable some libraries)
 
-3.	为你需要编译的库编写android.mk文件.
+2.	According to whether you have some header or not, modify soxconfig.h.
 
-4.	The project on [my bitbucket](https://bitbucket.org/LukeLu1263/sox-android-lib)
+3.  write **android.mk** for the libraries you want to use.
+
+4.  The lpc10、libgsm and wavpack are prerequisite.
+
+5.	The project is on [my bitbucket](https://bitbucket.org/LukeLu1263/sox-android-lib)
 
 ##Reference
 
