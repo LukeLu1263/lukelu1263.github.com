@@ -1,0 +1,53 @@
+<p>repost from :http://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/</p>
+
+<p>Modified a little by me.</p>
+
+<p>If you have ever put something in a file like .bashrc and had it not work, or are confused by why there are so many different files — .bashrc, .bash_profile, .bash_login, .profile etc. — and what they do, this is for you.</p>
+
+<p>The issue is that Bash sources from a different file based on what kind of shell it thinks it is in. For an “interactive non-login shell”, it reads .bashrc, but for an “interactive login shell” it reads from the first of .bash_profile, .bash_login and .profile (only). There is no sane reason why this should be so&#160;it’s just historical. Follows in more detail.</p>
+
+<p>For Bash, they work as follows. Read down the appropriate column. Executes A, then B, then C, etc. The B1, B2, B3 means it executes only the first of those files found.</p>
+<table><thead><tr><th /><th>Interactive login</th><th>Interactive non-login</th><th>Script</th></tr></thead><tbody><tr><td style='text-align: left;'>/etc/profile</td><td style='text-align: left;'>A</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>/etc/bash.bashrc</td><td style='text-align: left;' /><td style='text-align: left;'>A</td><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.bashrc</td><td style='text-align: left;' /><td style='text-align: left;'>B</td><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.bash_profile</td><td style='text-align: left;'>B1</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.bash_login</td><td style='text-align: left;'>B2</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.profile</td><td style='text-align: left;'>B3</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>BASH_ENV</td><td style='text-align: left;' /><td style='text-align: left;' /><td style='text-align: left;'>A</td>
+</tr><tr><td style='text-align: left;'>~/.bash_logout</td><td style='text-align: left;'>C</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr></tbody></table>
+<p>Typically, most users will encounter a login shell only if either:</p>
+
+<ul>
+<li>they logged in from a tty, not through a GUI</li>
+
+<li>they logged in remotely, such as through ssh. If the shell was started any other way, such as through GNOME’s gnome-terminal or KDE’s konsole, then it is typically not a login shell — the login shell was what started GNOME or KDE behind your back when you logged in, things started anew are not login shells. New terminals or new screen windows you open are not login shells either. (Starting a new window in OS X’s Terminal.app seems to count as a login shell, though.)</li>
+</ul>
+
+<p>So typically (or sooner or later), what you will encounter are non-login shells. So this case is what you should write your config files for. This means putting most of your stuff in ~/.bashrc, having exactly one of ~/.bash_profile, ~/.bash_login, and ~/.profile, and sourcing ~/.bashrc from it. If you have nothing that you specifically want to happen only for login shells, you can even symlink one of the three to ~/.bashrc. In fact, even if you do, it is probably a good idea to have only file, as follows:</p>
+
+<h2 id='bash_customisation_file'>Bash customisation file</h2>
+
+<h2 id='general_configuration_starts_stuff_that_you_always_want_executed'>General configuration starts: stuff that you always want executed</h2>
+
+<h2 id='general_configuration_ends'>General configuration ends</h2>
+
+<p>if <span><span>-n $PS1</span></span>&#160;then : # These are executed only for interactive shells echo &#8220;interactive&#8221; else : # Only for NON-interactive shells fi</p>
+
+<p>if shopt -q login_shell &#160;then : # These are executed only when it is a login shell echo &#8220;login&#8221; else : # Only when it is NOT a login shell echo &#8220;nonlogin&#8221; fi Almost everything should go in the “general configuration” section. There might be some commands (those which produce output, etc.) that you only want executed when the shell is interactive, and not in scripts, which you can put in the first “conditional section”. I don’t see any reason to use the rest. You can drop the “echo” lines, but keep the “:”s — they are commands which do nothing, and are needed if that section is empty.</p>
+
+<p>You then need to have only file, and you can call this ~/.bashrc and do cd &#38; ln -s .bashrc .bash_profile</p>
+
+<p>For zsh: <span>Note this is not entirely correct, as zsh reads ~/.profile as well, if ~/.zshrc is not present. Will fix this later.</span></p>
+<table><thead><tr><th /><th>Interactive login</th><th>Interactive non-login</th><th>Script</th></tr></thead><tbody><tr><td style='text-align: left;'>/etc/zshenv</td><td style='text-align: left;'>A</td><td style='text-align: left;'>A</td><td style='text-align: left;'>A</td>
+</tr><tr><td style='text-align: left;'>~/.zshenv</td><td style='text-align: left;'>B</td><td style='text-align: left;'>B</td><td style='text-align: left;'>B</td>
+</tr><tr><td style='text-align: left;'>/etc/zprofile</td><td style='text-align: left;'>C</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.zprofile</td><td style='text-align: left;'>D</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>/etc/zshrc</td><td style='text-align: left;'>E</td><td style='text-align: left;'>C</td><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.zshrc</td><td style='text-align: left;'>F</td><td style='text-align: left;'>D</td><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>/etc/zlogin</td><td style='text-align: left;'>G</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.zlogin</td><td style='text-align: left;'>H</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>~/.zlogout</td><td style='text-align: left;'>I</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr><tr><td style='text-align: left;'>/etc/zlogout</td><td style='text-align: left;'>J</td><td style='text-align: left;' /><td style='text-align: left;' />
+</tr></tbody></table>
+<p>Moral: For bash, put stuff in ~/.bashrc, and make ~/.bash_profile source it. For zsh, put stuff in ~/.zshrc, which is always executed.</p>
