@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Explanation for 0, ,  bash,  and %2 variables in shell"
+title: "Explanation for bash variables in shell"
 description: ""
 category: 
 tags: [linux]
