@@ -13,7 +13,7 @@ I love singing. This is s song sang by me. Just a section of [“The Lonely Seas
 
 The following are my team, familiar robot, online certification and I.
 
-##I worked in the aboratory!
+##I worked in the laboratory!
 ![Laboratory](/images/lab.jpg "Laboratory")
 
 ##My team!
