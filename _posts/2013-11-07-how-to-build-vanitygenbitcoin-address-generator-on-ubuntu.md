@@ -7,6 +7,8 @@ tags: [bitcoin]
 ---
 {% include JB/setup %}
 
+####This topic relate to the parallel programming or GPU programming. But this is just installation tutorial.
+
 Install Ubuntu 12.04
 -----------------------------------------
 You can edit the file after installation.
