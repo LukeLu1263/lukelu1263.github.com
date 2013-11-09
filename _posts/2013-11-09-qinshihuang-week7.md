@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "qinshihuang week7"
+title: "秦始皇week7随笔"
 description: "商鞅来了!"
 category: 
 tags: [古代历史秦始皇]
