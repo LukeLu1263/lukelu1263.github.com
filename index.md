@@ -22,5 +22,8 @@ The following are my team, familiar robot, online certification and I.
 ##It's me!
 ![Avatar](/images/avatar.jpg "Avatar")
 
-##Certification of Coursera!
+##Certification of Coursera for Coding The Matrix!
 ![Certification](/images/CodingTheMatrix_certification.jpg "Certification")
+
+##Certification of Coursera for Machine Learning!
+![Certification](/images/ml_certification.jpg "Certification")
