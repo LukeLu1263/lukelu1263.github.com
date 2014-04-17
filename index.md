@@ -27,3 +27,6 @@ The following are my team, familiar robot, online certification and I.
 
 ##Certification of Coursera for Machine Learning!
 ![Certification](/images/ml_certification.jpg "Certification")
+
+##Certification of Udacity for Introduction to Statistics! (Another perspective to learn statistcs! Easy to learn and learn by doing.)
+![Certification](/images/introstats_certificate.jpg "Certification")
