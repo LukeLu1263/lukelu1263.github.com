@@ -22,11 +22,15 @@ The following are my team, familiar robot, online certification and I.
 ##It's me!
 ![Avatar](/images/avatar.jpg "Avatar")
 
-##Certification of Coursera for Coding The Matrix!
+##Certification for Coding The Matrix on Coursera
 ![Certification](/images/CodingTheMatrix_certification.jpg "Certification")
 
-##Certification of Coursera for Machine Learning!
+##Certification for Machine Learning on Coursera
 ![Certification](/images/ml_certification.jpg "Certification")
 
-##Certification of Udacity for Introduction to Statistics! (Another perspective to learn statistcs! Easy to learn and learn by doing.)
+##Certification of Udacity for Introduction to Statistics
 ![Certification](/images/introstats_certificate.jpg "Certification")
+
+##Certification of Udacity for Introduction to Artificial Intelligence
+![Certification](/images/introAI_certificate.jpg "Certification")
+
